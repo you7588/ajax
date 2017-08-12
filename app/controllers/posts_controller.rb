@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = current_user.posts.find(params[:id])
+    @post = current_user.posts.find(params[:id]) # 只能删除自己的贴文
     @post.destroy
 
     redirect_to posts_path
@@ -23,6 +23,7 @@ class PostsController < ApplicationController
   protected
 
   def post_params
-    patams.require(:post).permit(:content)
+    params.require(:post).permit(:content)
+   end
+
   end
-end
