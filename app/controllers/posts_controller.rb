@@ -43,6 +43,7 @@ class PostsController < ApplicationController
   end
 
   def toggle_flag
+
       @post = Post.find(params[:id])
 
       if @post.flag_at
@@ -57,6 +58,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    sleep(1)    
     @post = Post.find(params[:id])
     @post.update!( post_params)
 
